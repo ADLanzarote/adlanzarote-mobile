@@ -17,7 +17,7 @@ const NIVEL_LABELS: Record<string, { emoji: string; label: string; color: string
   admin: { emoji: '⭐', label: 'Administrador', color: Colors.accent },
   tesorero: { emoji: '💰', label: 'Tesorero', color: Colors.primary },
   diacono: { emoji: '🙏', label: 'Diácono', color: '#8E44AD' },
-  miembro: { emoji: '👤', label: 'Miembro', color: Colors.subtext },
+  miembro: { emoji: '👤', label: 'Miembro', color: '#8FB5BC' },
 };
 
 export default function ConfiguracionScreen() {
@@ -122,7 +122,7 @@ export default function ConfiguracionScreen() {
             <View style={[styles.divider, { backgroundColor: colors.border }]} />
             
             <TouchableOpacity style={styles.row} onPress={() => {}}>
-              <Text style={[styles.rowLabel, { color: Colors.primary }}>🌐 facebook.com/ADLanzarote</Text>
+              <Text style={[styles.rowLabel, { color: Colors.primary }]}>🌐 facebook.com/ADLanzarote</Text>
             </TouchableOpacity>
           </View>
 
