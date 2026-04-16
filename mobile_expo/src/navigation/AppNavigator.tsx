@@ -7,17 +7,19 @@ import { Text, View } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { Colors } from '../theme/colors';
+import { useTranslation } from 'react-i18next';
 
 import LoginScreen from '../screens/LoginScreen';
+import HomeScreen from '../screens/HomeScreen';
 import ComentariosBiblicosScreen from '../screens/ComentariosBiblicosScreen';
 import AportesScreen from '../screens/AportesScreen';
 import ConfiguracionScreen from '../screens/ConfiguracionScreen';
-import { useTranslation } from 'react-i18next';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const TAB_ICONS: Record<string, string> = {
+  Home: '🏠',
   Comentarios: '📖',
   Aportes: '💰',
   Configuracion: '⚙️',
@@ -25,7 +27,7 @@ const TAB_ICONS: Record<string, string> = {
 
 function TabIcon({ name, focused }: { name: string; focused: boolean }) {
   return (
-    <Text style={{ fontSize: focused ? 22 : 18, opacity: focused ? 1 : 0.6 }}>
+    <Text style={{ fontSize: focused ? 24 : 20, opacity: focused ? 1 : 0.6 }}>
       {TAB_ICONS[name]}
     </Text>
   );
@@ -53,6 +55,11 @@ function MainTabs() {
         tabBarIcon: ({ focused }) => <TabIcon name={route.name} focused={focused} />,
       })}
     >
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ tabBarLabel: 'Inicio' }}
+      />
       <Tab.Screen
         name="Comentarios"
         component={ComentariosBiblicosScreen}
